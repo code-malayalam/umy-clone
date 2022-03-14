@@ -2,7 +2,6 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Details from './Details';
 import Notes from './Notes';
@@ -33,7 +32,7 @@ TabPanel.propTypes = {
 };
 
 
-export default function DescriptionTabs() {
+export default function DescriptionTabs({videoId}) {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -50,13 +49,13 @@ export default function DescriptionTabs() {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <Details />
+        <Details selected={value === 0} videoId={videoId}/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Notes />
+        <Notes selected={value === 1} videoId={videoId}/>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <Ask />
+        <Ask selected={value === 2} videoId={videoId}/>
       </TabPanel>
     </Box>
   );

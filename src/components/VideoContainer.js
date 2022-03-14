@@ -12,7 +12,8 @@ export default function VideoContainer(props) {
         width: '100%',
         playerVars: {
             autoplay: 1,
-            start: 0
+            start: 0,
+            rel: 0
           // https://developers.google.com/youtube/player_parameters
         },
       };
