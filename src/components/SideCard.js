@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -6,10 +5,14 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import logo from '../logo.svg';
 
-export default function SideCard() {
+export default function SideCard(props) {
+
+    const {
+        onClick
+    } = props;
 
   return (
-    <Card sx={{ display: 'flex', mb: 1, cursor: 'pointer' }}>
+    <Card sx={{ display: 'flex', mb: 1, cursor: 'pointer' }} onClick={onClick}>
         <CardMedia
             component="img"
             sx={{ width: 100 }}
@@ -25,4 +28,8 @@ export default function SideCard() {
       </Box>
     </Card>
   );
+}
+
+SideCard.defaultProps = {
+    onClick: () => {}
 }

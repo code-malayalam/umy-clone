@@ -1,12 +1,12 @@
 import React from 'react'
-import CMAppBar from '../components/CMAppBar'
+import TopBar from '../components/TopBar'
 import SimpleContainer from '../components/SimpleContainer'
 
 
 export default function Learn() {
   return (
       <div>
-        <CMAppBar />
+        <TopBar />
         <SimpleContainer />
     </div>
   )
