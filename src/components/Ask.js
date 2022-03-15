@@ -4,7 +4,7 @@ import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-
+import LinearProgress from '@mui/material/LinearProgress';
 
 export default function Ask(props) {
     const {
@@ -14,32 +14,40 @@ export default function Ask(props) {
 
     const [data, setData] = useState([]);
     const [value, setValue] = useState('');
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         if(selected && !data.length) {
             getDiscussions(videoId)
                 .then((data) => {
+                    setLoading(false)
                     setData(data);
                 });
         }
     }, [data, selected, videoId]);
 
 
+    console.log(loading);
     return (
         <Paper elevation={0} sx={{p: 2}} >
+            
             <TextField
                 label="Ask"
                 fullWidth
                 multiline
                 rows={3}
                 value={value}
+                disabled={loading}
                 onChange={(evt) => {
                     setValue(evt.target.value)
                 }}
             />
             <Box sx={{ display: 'flex', flexDirection: 'row-reverse' }}>
-                <Button variant="contained" sx={{mt: 1}}>ASK</Button>
+                <Button variant="contained" sx={{mt: 1}} disabled={loading}>ASK</Button>
             </Box>
+            {
+                loading && <LinearProgress sx={{mt: 1}}/>
+            }
             {
                 data.map((item) => {
                     return (

@@ -4,7 +4,7 @@ import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-
+import LinearProgress from '@mui/material/LinearProgress';
 
 export default function Notes(props) {
     const {
@@ -14,12 +14,14 @@ export default function Notes(props) {
 
     const [data, setData] = useState([]);
     const [value, setValue] = useState('');
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         if(selected && !data.length) {
             getNotes(videoId)
                 .then((data) => {
                     setData(data);
+                    setLoading(false)
                 });
         }
     }, [data, selected, videoId]);
@@ -33,13 +35,17 @@ export default function Notes(props) {
                 multiline
                 rows={3}
                 value={value}
+                disabled={loading}
                 onChange={(evt) => {
                     setValue(evt.target.value)
                 }}
             />
             <Box sx={{ display: 'flex', flexDirection: 'row-reverse' }}>
-                <Button variant="contained" sx={{mt: 1}}>SAVE</Button>
+                <Button variant="contained" sx={{mt: 1}} disabled={loading}>SAVE</Button>
             </Box>
+            {
+                loading && <LinearProgress sx={{mt: 1}}/>
+            }
             {
                 data.map((item) => {
                     return (

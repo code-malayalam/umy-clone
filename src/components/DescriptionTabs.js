@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import Details from './Details';
 import Notes from './Notes';
 import Ask from './Ask';
@@ -32,7 +33,15 @@ TabPanel.propTypes = {
 };
 
 
-export default function DescriptionTabs({data}) {
+export default function DescriptionTabs(props) {
+  const {
+    data,
+    isFirst,
+    isLast,
+    onNext,
+    onPrev
+  } = props;
+
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -42,10 +51,14 @@ export default function DescriptionTabs({data}) {
   return (
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" sx={{display: 'flex'}}>
           <Tab label="Details" />
           <Tab label="Notes" />
           <Tab label="Ask" />
+          <Box style={{display: 'flex', flexGrow: 1, flexDirection: 'row-reverse'}}>
+            <Button disabled={isLast} color="secondary" onClick={onNext}>Next</Button>
+            <Button disabled={isFirst} color="secondary" onClick={onPrev}>Previous</Button>
+          </Box>
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>

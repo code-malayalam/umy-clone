@@ -5,7 +5,11 @@ import DescriptionTabs from './DescriptionTabs';
 
 export default function VideoContainer(props) {
     const {
-        data
+        data,
+        isFirst,
+        isLast,
+        onNext,
+        onPrev
     } = props;
 
     const opts = {
@@ -27,7 +31,7 @@ export default function VideoContainer(props) {
                 }} />
             </div>
             <div>
-                <DescriptionTabs data={data}/>
+                <DescriptionTabs data={data} isFirst={isFirst} isLast={isLast} onNext={onNext} onPrev={onPrev}/>
             </div>
           </div>
       );
