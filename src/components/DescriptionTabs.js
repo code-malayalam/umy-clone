@@ -32,7 +32,7 @@ TabPanel.propTypes = {
 };
 
 
-export default function DescriptionTabs({videoId}) {
+export default function DescriptionTabs({data}) {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -49,13 +49,13 @@ export default function DescriptionTabs({videoId}) {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <Details selected={value === 0} videoId={videoId}/>
+        <Details selected={value === 0} data={data}/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Notes selected={value === 1} videoId={videoId}/>
+        <Notes selected={value === 1} videoId={data.id}/>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <Ask selected={value === 2} videoId={videoId}/>
+        <Ask selected={value === 2} videoId={data.id}/>
       </TabPanel>
     </Box>
   );

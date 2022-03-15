@@ -1,6 +1,6 @@
 import videoMeta from '../stub/videoMeta.json';
 import coursesMeta from '../stub/coursesMeta.json';
-import chapterMeta from '../stub/chapterMeta.json';
+import chaptersMetaWithId from '../stub/chaptersMetaWithId.json';
 import discussions from '../stub/discussions.json';
 import notes from '../stub/notes.json';
 
@@ -12,8 +12,8 @@ const getCoursesMeta = () => {
     return Promise.resolve(coursesMeta);
 };
 
-const getChapterMeta = () => {
-    return Promise.resolve(chapterMeta);
+const getChapterMetaWithId = () => {
+    return Promise.resolve(chaptersMetaWithId);
 };
 
 const getDiscussions = () => {
@@ -27,7 +27,7 @@ const getNotes = () => {
 export {
     getVideoMeta,
     getCoursesMeta,
-    getChapterMeta,
+    getChapterMetaWithId,
     getDiscussions,
     getNotes
 };

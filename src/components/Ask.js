@@ -25,7 +25,6 @@ export default function Ask(props) {
     }, [data, selected, videoId]);
 
 
-    console.log(data);
     return (
         <Paper elevation={0} sx={{p: 2}} >
             <TextField

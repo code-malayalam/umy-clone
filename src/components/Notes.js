@@ -25,7 +25,6 @@ export default function Notes(props) {
     }, [data, selected, videoId]);
 
 
-    console.log(data);
     return (
         <Paper elevation={0} sx={{p: 2}} >
             <TextField
@@ -39,7 +38,7 @@ export default function Notes(props) {
                 }}
             />
             <Box sx={{ display: 'flex', flexDirection: 'row-reverse' }}>
-                <Button variant="contained" sx={{mt: 1}}>POST</Button>
+                <Button variant="contained" sx={{mt: 1}}>SAVE</Button>
             </Box>
             {
                 data.map((item) => {
