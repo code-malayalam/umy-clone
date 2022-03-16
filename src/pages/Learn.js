@@ -8,7 +8,7 @@ import { getChapterMetaWithId } from "../api";
 import TopBar from '../components/TopBar';
 import _ from "lodash";
 
-export default function LearnBody({ courseId }) {
+export default function Learn({ courseId }) {
   const [videoData, setVideoData] = useState(null);
   const [data, setData] = useState({});
 
