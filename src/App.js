@@ -1,9 +1,9 @@
 import './App.css';
-import Otp from './pages/Otp';
+import Learn from './pages/Learn';
 
 function App() {
   return (
-    <Otp />
+    <Learn />
   );
 }
 

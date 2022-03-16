@@ -1,20 +1,25 @@
-import videoMeta from '../stub/videoMeta.json';
 import coursesMeta from '../stub/coursesMeta.json';
-import chaptersMetaWithId from '../stub/chaptersMetaWithId.json';
 import discussions from '../stub/discussions.json';
 import notes from '../stub/notes.json';
+import myCourses from '../stub/myCourses.json';
+import _ from 'lodash';
 
-const getVideoMeta = () => {
-    return Promise.resolve(videoMeta);
-};
-
-const getCoursesMeta = () => {
-    return Promise.resolve(coursesMeta);
-};
 
 const getChapterMetaWithId = () => {
-    return Promise.resolve(chaptersMetaWithId);
+    return Promise.resolve(coursesMeta[0]);
+    
 };
+
+const getCourseMeta = () => {
+    const vals  =_.groupBy(coursesMeta, (item) => {
+        if(myCourses.indexOf(item.id) !== -1) {
+            return 'ours';
+        }
+        return item.price ? 'all' : 'free';
+    });
+    console.log(vals);
+    return Promise.resolve(vals);
+}
 
 const getDiscussions = () => {
     return Promise.resolve(discussions);
@@ -25,9 +30,8 @@ const getNotes = () => {
 }
 
 export {
-    getVideoMeta,
-    getCoursesMeta,
     getChapterMetaWithId,
     getDiscussions,
-    getNotes
+    getNotes,
+    getCourseMeta
 };
