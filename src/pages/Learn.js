@@ -81,7 +81,6 @@ export default function Learn({ courseId }) {
             }}
           >
             {chapters.map((item) => {
-              console.log(item === videoData);
               return (
                 <SideCard
                   key={item.id}

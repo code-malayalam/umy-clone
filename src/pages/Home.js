@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
-import Divider from "@mui/material/Divider";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -9,33 +8,54 @@ import LinearProgress from "@mui/material/LinearProgress";
 import CardMedia from "@mui/material/CardMedia";
 import Card from "@mui/material/Card";
 import TopBar from "../components/TopBar";
-import { Paper } from "@mui/material";
+import Alert from "@mui/material/Alert";
+import CardContent from "@mui/material/CardContent";
+import CardActions from "@mui/material/CardActions";
 import { getCourseMeta } from "../api";
 
-const NonPriceItem = ({ item, buy }) => {
+const NonPriceItem = ({ item, mine }) => {
+
+  const buy = !mine && item.price;
+  const free = !mine && !item.price;
+
   return (
-    <Paper elevation={0} sx={{ p: 2, mb: 2, display: "flex" }}>
-      <Card elevation={0} sx={{ display: "flex", flexGrow: 1 }}>
-        <CardMedia
-          component="img"
-          sx={{ width: 120, height: 70, mr: 3 }}
-          image={item.icon}
-        />
-        <Typography variant="h6" component="div">
+    <Card sx={{ width: 345, m: 2 }}>
+      <CardMedia
+        component="img"
+        height="140"
+        image={item.icon || "https://via.placeholder.com/345x140/000000"}
+        alt=""
+      />
+      <CardContent>
+       
+        <Typography gutterBottom variant="h5" component="div">
           {item.title}
         </Typography>
-      </Card>
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
-        <Button variant="contained" color={buy ? "success" : "primary"}>
-          {buy ? `Buy for ₹${item.price}` : "Watch"}
-        </Button>
-        <Button variant="text" color="primary">
-          Details
-        </Button>
-      </Box>
-    </Paper>
+        <Typography variant="body2" color="text.secondary">
+          {item.descr}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Box sx={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
+          {
+            free ? (
+              <Alert color="info" sx={{py:0, px: 1, width: 100}} icon={false}>
+                Free Course
+              </Alert>
+            ) : <Box />
+          }
+          <Box sx={{display: 'flex', flexDirection: 'row-reverse'}}>
+            <Button size="small" variant="contained" color={buy ? "success" : "primary"} sx={{ml: 1}}>
+              {buy ? `Buy for ₹${item.price}` : "Watch"}
+            </Button>
+            <Button size="small">Learn More</Button>
+          </Box>
+        </Box>
+      </CardActions>
+    </Card>
   );
 };
+
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -51,8 +71,7 @@ export default function Home() {
   const ours = data.ours || [];
   const all = data.all || [];
   const free = data.free || [];
-
-  console.log("***", loading);
+  const others = [...all, ...free];
 
   return (
     <React.Fragment>
@@ -62,63 +81,25 @@ export default function Home() {
         {loading && <LinearProgress sx={{ mt: 1 }} />}
         {!!ours.length && (
           <Box>
-            <Box
-              sx={{
-                display: "flex",
-                py: 2,
-                flexDirection: { xs: "column", md: "row" },
-              }}
-            >
               <Typography variant="h5" gutterBottom component="div">
                 My Courses
               </Typography>
-            </Box>
-            <Box>
+            <Box sx={{display: 'flex', flexWrap: 'wrap'}}>
               {ours.map((item) => {
-                return <NonPriceItem item={item} key={item.id} />;
-              })}
-            </Box>
-            <Divider />
-          </Box>
-        )}
-
-        {!!free.length && (
-          <Box>
-            <Box
-              sx={{
-                display: "flex",
-                py: 2,
-                flexDirection: { xs: "column", md: "row" },
-              }}
-            >
-              <Typography variant="h5" gutterBottom component="div">
-                Free Courses
-              </Typography>
-            </Box>
-            <Box>
-              {free.map((item) => {
-                return <NonPriceItem item={item} key={item.id} />;
+                return <NonPriceItem item={item} key={item.id} mine/>;
               })}
             </Box>
           </Box>
         )}
 
-        {!!all.length && (
+        {!!others.length && (
           <Box>
-            <Box
-              sx={{
-                display: "flex",
-                py: 2,
-                flexDirection: { xs: "column", md: "row" },
-              }}
-            >
               <Typography variant="h5" gutterBottom component="div">
-                Buy Courses
+                Other Courses
               </Typography>
-            </Box>
-            <Box>
-              {all.map((item) => {
-                return <NonPriceItem item={item} key={item.id} buy />;
+            <Box sx={{display: 'flex', flexWrap: 'wrap'}}>
+              {others.map((item) => {
+                return <NonPriceItem item={item} key={item.id} />;
               })}
             </Box>
           </Box>

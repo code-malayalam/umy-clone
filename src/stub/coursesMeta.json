@@ -1,14 +1,15 @@
 [
     {
         "title": "Course One",
+        "descr": "This is a wonderul description",
         "id": "course1",
         "price": 99,
-        "icon": "https://via.placeholder.com/150x70/ff0000",
+        "icon": "https://via.placeholder.com/345x140/027fff",
         "chapters" :[
             {
                 "title": "This is a long chapter name and is fine",
                 "id": "xCn-dsVNfqY",
-                "icon": "https://via.placeholder.com/150x70/ff0000",
+                "icon": "https://via.placeholder.com/120x70/ff0000",
                 "descr": [
                     "Well done, your hard work has paid off! Make sure to download your certificate and store it in a safe place You can also share your achievement with the world!",
                     "Well done, your hard work has paid off! Make sure to download your certificate and store it in a safe place You can also share your achievement with the world!",
@@ -35,7 +36,7 @@
             {
                 "title": "Chapter 2",
                 "id": "icismzBk6yg",
-                "icon": "https://via.placeholder.com/150x70/00ff00",
+                "icon": "https://via.placeholder.com/120x70/00ff00",
                 "descr": [
                     "Hello Mydear"
                 ],
@@ -58,7 +59,7 @@
             {
                 "title": "Chapter 3",
                 "id": "Bzi5tpW8Ga8",
-                "icon": "https://via.placeholder.com/150x70/0000ff",
+                "icon": "https://via.placeholder.com/120x70/0000ff",
                 "descr": [
                     "This is Chapter 2 for React Router 6 tutorial."
                 ],
@@ -78,14 +79,15 @@
     },
     {
         "title": "Course Two",
+        "descr": "This is a wonderul description",
         "id": "course2",
         "price": 99,
-        "icon": "https://via.placeholder.com/150x70/ff0000",
+        "icon": "https://via.placeholder.com/345x140/027fff",
         "chapters" :[
             {
                 "title": "This is a long chapter name and is fine",
                 "id": "xCn-dsVNfqY",
-                "icon": "https://via.placeholder.com/150x70/ff0000",
+                "icon": "https://via.placeholder.com/120x70/ff0000",
                 "descr": [
                     "Well done, your hard work has paid off! Make sure to download your certificate and store it in a safe place You can also share your achievement with the world!",
                     "Well done, your hard work has paid off! Make sure to download your certificate and store it in a safe place You can also share your achievement with the world!",
@@ -112,7 +114,7 @@
             {
                 "title": "Chapter 2",
                 "id": "icismzBk6yg",
-                "icon": "https://via.placeholder.com/150x70/ff0000",
+                "icon": "https://via.placeholder.com/120x70/ff0000",
                 "descr": [
                     "Hello Mydear"
                 ],
@@ -135,7 +137,7 @@
             {
                 "title": "Chapter 3",
                 "id": "Bzi5tpW8Ga8",
-                "icon": "https://via.placeholder.com/150x70/ff0000",
+                "icon": "https://via.placeholder.com/120x70/ff0000",
                 "descr": [
                     "This is Chapter 2 for React Router 6 tutorial."
                 ],
@@ -155,13 +157,14 @@
     },
     {
         "title": "Course Three",
+        "descr": "This is a wonderul description",
         "id": "course3",
-        "icon": "https://via.placeholder.com/150x70/ff0000",
+        "icon": "https://via.placeholder.com/345x140/027fff",
         "chapters" :[
             {
                 "title": "This is a long chapter name and is fine",
                 "id": "xCn-dsVNfqY",
-                "icon": "https://via.placeholder.com/150x70/ff0000",
+                "icon": "https://via.placeholder.com/120x70/ff0000",
                 "descr": [
                     "Well done, your hard work has paid off! Make sure to download your certificate and store it in a safe place You can also share your achievement with the world!",
                     "Well done, your hard work has paid off! Make sure to download your certificate and store it in a safe place You can also share your achievement with the world!",
@@ -188,7 +191,7 @@
             {
                 "title": "Chapter 2",
                 "id": "icismzBk6yg",
-                "icon": "https://via.placeholder.com/150x70/ff0000",
+                "icon": "https://via.placeholder.com/120x70/ff0000",
                 "descr": [
                     "Hello Mydear"
                 ],
@@ -211,7 +214,7 @@
             {
                 "title": "Chapter 3",
                 "id": "Bzi5tpW8Ga8",
-                "icon": "https://via.placeholder.com/150x70/ff0000",
+                "icon": "https://via.placeholder.com/120x70/ff0000",
                 "descr": [
                     "This is Chapter 2 for React Router 6 tutorial."
                 ],

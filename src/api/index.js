@@ -4,11 +4,24 @@ import notes from '../stub/notes.json';
 import myCourses from '../stub/myCourses.json';
 import _ from 'lodash';
 
-
-const getChapterMetaWithId = () => {
-    return Promise.resolve(coursesMeta[0]);
-    
+const getChapterMetaWithId = (id) => {
+    const chapters = coursesMeta.find((item) => {
+        return item.id === id;
+    });
+    return Promise.resolve(chapters);
 };
+
+// Without id
+const getChapterMeta = (id) => {
+    const chapters = coursesMeta.find((item) => {
+        return item.id === id;
+    });
+    return Promise.resolve(chapters);
+};
+
+const getMyCourses = () => {
+    return Promise.resolve(myCourses);
+}
 
 const getCourseMeta = () => {
     const vals  =_.groupBy(coursesMeta, (item) => {
@@ -17,7 +30,6 @@ const getCourseMeta = () => {
         }
         return item.price ? 'all' : 'free';
     });
-    console.log(vals);
     return Promise.resolve(vals);
 }
 
@@ -33,5 +45,7 @@ export {
     getChapterMetaWithId,
     getDiscussions,
     getNotes,
-    getCourseMeta
+    getCourseMeta,
+    getChapterMeta,
+    getMyCourses
 };

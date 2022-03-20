@@ -27,7 +27,6 @@ export default function Ask(props) {
     }, [data, selected, videoId]);
 
 
-    console.log(loading);
     return (
         <Paper elevation={0} sx={{p: 2}} >
             

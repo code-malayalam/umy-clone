@@ -1,9 +1,9 @@
 import './App.css';
-import Learn from './pages/Learn';
+import CourseDetail from './pages/CourseDetail';
 
 function App() {
   return (
-    <Learn />
+    <CourseDetail id="course2" />
   );
 }
 
