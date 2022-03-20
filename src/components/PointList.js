@@ -1,6 +1,5 @@
 import * as React from 'react';
 import List from '@mui/material/List';
-import ListSubheader from '@mui/material/ListSubheader';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
@@ -48,7 +47,7 @@ export default function PointList({points = [], pointsTitle, links=[]}) {
             links.map((item) => {
                 return (
                     <div key={item.link}>
-                        <Link href={item.link}>{item.text}</Link>
+                        <Link rel="noopener" target="_blank" href={item.link}>{item.text}</Link>
                     </div>
                 );
             })
