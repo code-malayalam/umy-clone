@@ -5,7 +5,6 @@ import LinearProgress from "@mui/material/LinearProgress";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Drawer from "@mui/material/Drawer";
-import TopBar from '../components/TopBar';
 import { getChapterMeta, getMyCourses } from "../api";
 import Button from "@mui/material/Button";
 import Details from "../components/Details";
@@ -23,8 +22,10 @@ export default function CourseDetail({item, id, isMine}) {
     useEffect(() => {
         if(!data) {
             setLoading(true);
+            console.log('YOYO');
             Promise.all([getChapterMeta(id), getMyCourses()])
                 .then(([val, myCourses]) => {
+                    console.log('PLING', val);
                     if(myCourses.indexOf(id) !== -1) {
                         setMine(true)
                     }
@@ -35,13 +36,12 @@ export default function CourseDetail({item, id, isMine}) {
         
     }, [id, data]);
 
- if(!data) {
-     return <LinearProgress sx={{my: 2}}/>;
- }
+  
+  const displayData = data || {};
+  const chapters = displayData.chapters || [];
 
   return (
     <React.Fragment>
-      <TopBar title="Login"/>
       <CssBaseline />
       <Container maxWidth="lg">
         {
@@ -49,17 +49,17 @@ export default function CourseDetail({item, id, isMine}) {
         }
         <Box sx={{background: '#349adb', p: 5, borderTopLeftRadius: 40, borderTopRightRadius: 40, display: 'flex', justifyContent: 'center', color: 'white'}}>
            <Typography variant="h4" component="div">
-                {data.title}
+                {displayData.title || 'No Data Available'}
             </Typography>
         </Box>
         <Box sx={{display: 'flex', justifyContent: 'flex-end', background: 'white', p: 2, border: '1px solid #349adb'}}>
            <Button size="small" variant="contained" color={mine ? "primary" : "success"} sx={{ml: 1}}>
-              {mine ? 'Watch' : `Buy for ₹${data.price}`}
+              {mine ? 'Watch' : `Buy for ₹${displayData.price}`}
             </Button>
         </Box>
 
         {
-            data.chapters.map((item) => {
+            chapters.map((item) => {
                 return (
                     <Box sx={{background: 'white', mt: 2, display: 'flex', alignItems:'center'}} key={item.id}>
                         <Box

@@ -7,7 +7,6 @@ import Typography from "@mui/material/Typography";
 import LinearProgress from "@mui/material/LinearProgress";
 import CardMedia from "@mui/material/CardMedia";
 import Card from "@mui/material/Card";
-import TopBar from "../components/TopBar";
 import Alert from "@mui/material/Alert";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
@@ -75,7 +74,6 @@ export default function Home() {
 
   return (
     <React.Fragment>
-      <TopBar title="Courses" />
       <CssBaseline />
       <Container maxWidth="lg">
         {loading && <LinearProgress sx={{ mt: 1 }} />}

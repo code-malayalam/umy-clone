@@ -3,7 +3,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Button from '@mui/material/Button';
-import TopBar from '../components/TopBar';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
@@ -13,7 +12,6 @@ export default function Profile({text}) {
 
   return (
     <React.Fragment>
-      <TopBar title="Profile"/>
       <CssBaseline />
       <Container maxWidth="lg">
         <Box

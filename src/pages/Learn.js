@@ -5,7 +5,6 @@ import Container from "@mui/material/Container";
 import SideCard from "../components/SideCard";
 import VideoContainer from "../components/VideoContainer";
 import { getChapterMetaWithId } from "../api";
-import TopBar from '../components/TopBar';
 import _ from "lodash";
 
 export default function Learn({ courseId }) {
@@ -15,14 +14,14 @@ export default function Learn({ courseId }) {
   useEffect(() => {
     getChapterMetaWithId(courseId).then((vals) => {
       setData(vals);
-      const chapters = vals.chapters;
+      const chapters = vals?.chapters;
       if (chapters && chapters.length) {
         setVideoData(chapters[0]);
       }
     });
   }, [courseId]);
 
-  const chapters = data.chapters || [];
+  const chapters = data?.chapters || [];
 
   const isFirst = _.first(chapters) === videoData;
   const isLast = _.last(chapters) === videoData;
@@ -51,7 +50,6 @@ export default function Learn({ courseId }) {
 
   return (
     <React.Fragment>
-      <TopBar title={data.title}/>
       <CssBaseline />
       <Container maxWidth="lg">
         <Box
